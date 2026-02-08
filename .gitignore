@@ -1,0 +1,18 @@
+# Build output
+out/
+*.exe
+*.pdb
+*.obj
+*.o
+
+# Data files
+data/
+
+# IDE
+.vscode/
+*.suo
+*.user
+
+# OS
+.DS_Store
+Thumbs.db

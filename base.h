@@ -21,8 +21,10 @@ typedef double float64_t;
 // Macros
 // ============================================
 
-#define CONCAT(a, b) a##b
-#define STRINGIFY(a) #a
+#define XCONCAT(a, b) a##b
+#define CONCAT(a, b) XCONCAT(a, b)
+#define STRINGIFY(a) TO_STRING(a)
+#define TO_STRING(a) #a
 #define ARRAY_LENGTH(arr) (sizeof((arr)) / sizeof((arr)[0]))
 
 #define KiB(x) ((x) * 1024LL)
@@ -41,7 +43,8 @@ typedef double float64_t;
     ERROR_X(NONE, "No error.") \
     ERROR_X(ARENA_INIT, "Arena init error.") \
     ERROR_X(ARENA_ALLOC, "Arena alloc error.") \
-    ERROR_X(FILE_OPEN, "File open error.")
+    ERROR_X(FILE_OPEN, "File open error.") \
+    ERROR_X(COUNT, "Count.")
 
 typedef enum error_t {
 #define ERROR_X(r, m) CONCAT(ERROR_, r),
